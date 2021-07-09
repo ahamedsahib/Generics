@@ -48,7 +48,6 @@ namespace TestProject1
             //Assert
             Assert.AreEqual(actual, expected);
         }
-        [TestMethod]
         public void MaxString()
         {
             string num1, num2, num3, actual, expected;
@@ -79,6 +78,40 @@ namespace TestProject1
             expected = num3;
             //Act
             actual = max.MaxOfThreeNumbersString(num1, num2, num3);
+            //Assert
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void MaxFloat()
+        {
+            float num1, num2, num3, actual, expected;
+            //TC 1.1
+            //Arrange
+            num1 = 4.4f; num2 = 3.05f; num3 = 4.0f;
+            expected = num1;
+            //Act
+            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
+            //Assert
+            Assert.AreEqual(actual, expected);
+
+            //TC 1.2
+            //Arrange
+            num1 = 3.5f;
+            num2 = 5.4f;
+            num3 = 2.7f;
+            expected = num2;
+            //Act
+            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
+            //Assert
+            Assert.AreEqual(actual, expected);
+            //TC 1.3
+            //Arrange
+            num1 = 1.0f;
+            num2 = 2.4f;
+            num3 = 4.5f;
+            expected = num3;
+            //Act
+            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
             //Assert
             Assert.AreEqual(actual, expected);
         }
