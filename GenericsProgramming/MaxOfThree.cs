@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GenericsProgramming
 {
-     public class MaxOfThree<T> where T : IComparable
+      public class MaxOfThree<T> where T : IComparable
     {
         public T num1, num2, num3;
         public T[] array;
@@ -13,7 +13,7 @@ namespace GenericsProgramming
         {
             array = arr;
         }
-        public MaxOfThree(T n1, T n2, T n3)
+        public MaxOfThree(T n1,T n2,T n3)
         {
             num1 = n1;
             num2 = n2;
@@ -39,11 +39,8 @@ namespace GenericsProgramming
         public T FindMaxOfArray()
         {
             Array.Sort(this.array);
+            Console.WriteLine($"The max element from array is {array[array.Length - 1]}");
             return array[array.Length - 1];
         }
-    
-
-     }
-
+    }
 }
-
