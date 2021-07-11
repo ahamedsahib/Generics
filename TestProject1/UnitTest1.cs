@@ -6,114 +6,55 @@ namespace TestProject1
     [TestClass]
     public class UnitTest1
     {
-        MaxOfThree max;
-
-
+        MaxOfThree<int> findMaxInt;
+        MaxOfThree<string> findMaxString;
+        MaxOfThree<double> findMaxDouble;
+        MaxOfThree<int> findMaxArray;
+        int[] array = { 52, 45, 47, 22, 37 };
         [TestInitialize]
         public void SetUp()
         {
-            max = new MaxOfThree();
-        }
-        
-        public void MaxInt()
-        {
-            int num1, num2, num3, actual, expected;
-            //TC 1.1
-            //Arrange
-            num1 = 45; num2 = 35; num3 = 40;
-            expected = num1;
-            //Act
-            actual = max.MaxOfThreeNumbersInteger(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
+            //arrange
+            findMaxInt = new MaxOfThree<int>(10, 20, 30);
+            findMaxString = new MaxOfThree<string>("xyz", "poq", "kem");
+            findMaxDouble = new MaxOfThree<double>(7.6, 3.6, 7.7);
+            findMaxArray = new MaxOfThree<int>(array);
 
-            //TC 1.2
-            //Arrange
-            num1 = 35; 
-            num2 = 45; 
-            num3 = 40;
-            expected = num2;
-            //Act
-            actual = max.MaxOfThreeNumbersInteger(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
-            //TC 1.3
-            //Arrange
-            num1 = 35;
-            num2 = 40; 
-            num3 = 45;
-             expected = num3;
-            //Act
-            actual = max.MaxOfThreeNumbersInteger(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
-        }
-        public void MaxString()
-        {
-            string num1, num2, num3, actual, expected;
-            //TC 1.1
-            //Arrange
-            num1 = "xyz"; num2 = "abc"; num3 = "pqr";
-            expected = num1;
-            //Act
-            actual = max.MaxOfThreeNumbersString(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
-
-            //TC 1.2
-            //Arrange
-            num1 = "bde";
-            num2 = "qwr";
-            num3 = "hki";
-            expected = num2;
-            //Act
-            actual = max.MaxOfThreeNumbersString(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
-            //TC 1.3
-            //Arrange
-            num1 = "abc";
-            num2 = "def";
-            num3 = "ghi";
-            expected = num3;
-            //Act
-            actual = max.MaxOfThreeNumbersString(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
         }
         [TestMethod]
-        public void MaxFloat()
+        public void TestMethod1()
         {
-            float num1, num2, num3, actual, expected;
-            //TC 1.1
+
             //Arrange
-            num1 = 4.4f; num2 = 3.05f; num3 = 4.0f;
-            expected = num1;
+            int expectedInt = 30 ;
             //Act
-            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
+            int actualInt = findMaxInt.MaxOfThreeNumbers();
             //Assert
+            Assert.AreEqual(actualInt, expectedInt);
+
+            //TestCase string
+            //Arrange
+            string expectedString = "xyz";
+            //Act
+            string actualString = findMaxString.MaxOfThreeNumbers();
+            //Assert
+            Assert.AreEqual(actualString, expectedString);
+
+            //Tc double
+            //Arrange
+            double expectedDouble = 7.7;
+            //Act
+            double actualDouble = findMaxDouble.MaxOfThreeNumbers();
+            //Assert
+            Assert.AreEqual(actualDouble, expectedDouble);
+
+
+            //Max of Array
+            var actuaal = findMaxArray.FindMaxOfArray();
+            var expected = 52;
             Assert.AreEqual(actual, expected);
 
-            //TC 1.2
-            //Arrange
-            num1 = 3.5f;
-            num2 = 5.4f;
-            num3 = 2.7f;
-            expected = num2;
-            //Act
-            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
-            //TC 1.3
-            //Arrange
-            num1 = 1.0f;
-            num2 = 2.4f;
-            num3 = 4.5f;
-            expected = num3;
-            //Act
-            actual = max.MaxOfThreeNumbersFloat(num1, num2, num3);
-            //Assert
-            Assert.AreEqual(actual, expected);
         }
+
     }
 }
