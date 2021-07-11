@@ -1,42 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace GenericsProgramming
 {
-     public class MaxOfThree
+     public class MaxOfThree<T> where T : IComparable
     {
-        public int MaxOfThreeNumbersInteger(int num1, int num2, int num3)
+        public T num1, num2, num3;
+        public T[] array;
+
+        public MaxOfThree(T[] arr)
         {
-            if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0)
-            {
-                return num1;
-            }
-            else if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0)
-            {
-                return num2;
-            }
-            else
-            {
-                return num3;
-            }
+            array = arr;
         }
-        public string MaxOfThreeNumbersString(string num1, string num2, string num3)
+        public MaxOfThree(T n1, T n2, T n3)
         {
-            if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0)
-            {
-                return num1;
-            }
-            else if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0)
-            {
-                return num2;
-            }
-            else
-            {
-                return num3;
-            }
+            num1 = n1;
+            num2 = n2;
+            num3 = n3;
         }
-        public float MaxOfThreeNumbersFloat(float num1, float num2, float num3)
+        //method for finding max number
+        public T MaxOfThreeNumbers()
         {
             if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0)
             {
@@ -52,6 +36,14 @@ namespace GenericsProgramming
             }
         }
 
-    }
+        public T FindMaxOfArray()
+        {
+            Array.Sort(this.array);
+            return array[array.Length - 1];
+        }
+    
+
+     }
 
 }
+
